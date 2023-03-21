@@ -7,7 +7,6 @@ import cn.wangdpwin.validator.domain.dto.UserQueryDTO;
 import cn.wangdpwin.validator.domain.vo.UserVO;
 import cn.wangdpwin.validator.group.ValidGroup;
 import cn.wangdpwin.validator.util.ValidateUtil;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +18,12 @@ import java.util.List;
  * @Author wangdongpeng
  * @Date 2023/3/13 18:48
  * @Version 1.0
+ * Validater手动校验，https://blog.csdn.net/feiying0canglang/article/details/124282297
  */
 @RequestMapping("/manual")
 @RestController
 public class ManualValidateController {
 
-    @ApiOperation("添加")
     @PostMapping("/add")
     public UserVO add(@RequestBody UserAddDTO userAddDTO) {
         UserDTO userDTO = new UserDTO();
@@ -42,7 +41,6 @@ public class ManualValidateController {
         return userVO;
     }
 
-    @ApiOperation("修改")
     @PostMapping("/edit")
     public UserVO edit(@RequestBody UserEditDTO userEditDTO) {
         UserDTO userDTO = new UserDTO();
@@ -56,7 +54,6 @@ public class ManualValidateController {
         return userVO;
     }
 
-    @ApiOperation("查找")
     @GetMapping("/find")
     public List<UserVO> find(UserQueryDTO userQueryDTO) {
         UserDTO userDTO = new UserDTO();
@@ -66,7 +63,6 @@ public class ManualValidateController {
         return new ArrayList<>();
     }
 
-    @ApiOperation("删除")
     @PostMapping("/delete")
     public void delete(Long id) {
 

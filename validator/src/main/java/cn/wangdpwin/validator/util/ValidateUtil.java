@@ -35,7 +35,9 @@ public class ValidateUtil {
      * 通过组来校验实体类
      */
     public static <T> void validate(T t, Class<?>... groups) {
+        //判断bean对象的成员变量上有无注解，并且注解的校验类是否和groups匹配
         Set<ConstraintViolation<T>> constraintViolations = validator.validate(t, groups);
+        //校验不通过的拼接错误信息
         if (constraintViolations.size() > 0) {
             StringBuilder validateError = new StringBuilder();
             for (ConstraintViolation<T> constraintViolation : constraintViolations) {
